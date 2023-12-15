@@ -1,5 +1,5 @@
 import exceptions.*;
-import model.PersonInfo;
+
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoField;
@@ -16,7 +16,6 @@ public class Parser {
     public String phoneNumberString;
     public String gender;
     public Scanner scanner;
-    public PersonInfo personInfo;
 
     int amountOfComponents;
     int rightAmountOfComponents;
@@ -59,6 +58,9 @@ public class Parser {
         int age = tempYear - yearOfBorn;
         if (age > 150){
             throw new IncorrectBirthDayOld();
+        }
+        if (age < 0){
+            throw new IncorrectBirthDayFromFuture();
         }
     }
 
